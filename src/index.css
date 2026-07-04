@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Work Sans', system-ui, sans-serif;
+    background-color: #EFE7D8;
+    color: #2A2620;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    outline: 3px solid #E8A33D;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', Georgia, serif;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .postcard-shadow {
+    box-shadow:
+      0 2px 4px rgba(42, 38, 32, 0.08),
+      0 8px 24px rgba(42, 38, 32, 0.12),
+      0 0 0 1px rgba(42, 38, 32, 0.06);
+  }
+
+  .stamp-border {
+    border: 3px dashed currentColor;
+    border-radius: 50%;
+  }
+
+  .perforated-edge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    background-image: radial-gradient(circle, #EFE7D8 50%, transparent 50%);
+    background-size: 12px 12px;
+    background-position: -6px 0;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-marigold-500 text-night-800 font-work-sans font-600 rounded-lg transition-all duration-200;
+  }
+  .btn-primary:hover {
+    @apply bg-marigold-600 shadow-lg;
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .section-label {
+    @apply font-mono text-xs tracking-widest uppercase text-teal-600;
+  }
+}
+
+@layer utilities {
+  .font-600 {
+    font-weight: 600;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grid-auto-fill-card {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
